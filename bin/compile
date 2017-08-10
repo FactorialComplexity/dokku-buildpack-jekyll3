@@ -72,3 +72,5 @@ find . -mindepth 1 ! -name '_site' -type d -exec rm -rf {} +
 cd $BUILD_DIR/_site
 find . -mindepth 1 -maxdepth 1 -exec mv -t.. -- {} +
 rm -rf $BUILD_DIR/_site
+
+touch $BUILD_DIR/.static
