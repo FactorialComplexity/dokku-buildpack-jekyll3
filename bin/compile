@@ -55,9 +55,7 @@ export LANGUAGE=en_US.UTF-8
 echo "-----> Building Jekyll site"
 cd $BUILD_DIR
 
-echo "-----> Using `ruby -v`"
-rbenv local 2.2.1
-echo "-----> Using `ruby -v`"
+rbenv shell 2.2.1
 
 if [ -f $BUILD_DIR/Gemfile ]; then
   $BUILD_DIR/.gems/bin/bundle install --binstubs=$BUILD_DIR/.gems/bin --path=$BUILD_DIR/.gems | indent
