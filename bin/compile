@@ -81,10 +81,8 @@ if [ -f sass/style.scss ]; then
 fi
 
 # Clean up the BUILD_DIR: only keep static site files
-find . -type f -exec rm -f {} +
-find . -mindepth 1 ! -name '_site' -type d -exec rm -rf {} +
-
-echo `ls -al ./_site`
+find . -maxdepth 1 -type f -exec rm -f {} +
+find . -mindepth 1 -maxdepth 1 ! -name '_site' -type d -exec rm -rf {} +
 
 mv ./_site/* ./
 mv ./_site/.[!.]* ./
