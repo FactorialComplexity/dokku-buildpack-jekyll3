@@ -34,9 +34,6 @@ else
   rbenv download 2.2.1
   rbenv rehash
   rbenv local 2.2.1
-  
-  mkdir -p $CACHE_DIR/ruby2.2.1/.rbenv
-  rsync -au $HOME/.rbenv/* $CACHE_DIR/ruby2.2.1/.rbenv
 fi
 
 export GEM_HOME=$BUILD_DIR/.gems
@@ -70,6 +67,10 @@ rbenv local 2.2.1
 if [ -f $BUILD_DIR/Gemfile ]; then
   $BUILD_DIR/.gems/bin/bundle install --binstubs=$BUILD_DIR/.gems/bin --path=$BUILD_DIR/.gems | indent
 fi
+
+echo "-----> Saving Ruby environment to cache"
+mkdir -p $CACHE_DIR/ruby2.2.1/.rbenv
+rsync -au $HOME/.rbenv/* $CACHE_DIR/ruby2.2.1/.rbenv
 
 echo "-----> Saving gems to cache"
 mkdir -p $CACHE_DIR/ruby2.2.1/.gems
