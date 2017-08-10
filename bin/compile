@@ -11,7 +11,12 @@ LP_DIR=`cd $(dirname $0); cd ..; pwd`
 
 echo `pwd`
 echo $BUILD_DIR
+
+echo `ls -al`
+echo `ls -al $BUILD_DIR`
+
 echo $CACHE_DIR
+
 mkdir -p $BUILD_DIR/_src
 mv -f * _src
 
