@@ -75,9 +75,6 @@ mkdir -p $CACHE_DIR/ruby2.2.1/.gems
 rsync -au $BUILD_DIR/.gems/* $CACHE_DIR/ruby2.2.1/.gems
 
 $BUILD_DIR/.gems/bin/bundle exec $BUILD_DIR/.gems/bin/jekyll build | indent
-if [ -f sass/style.scss ]; then
-  $BUILD_DIR/.gems/bin/sass sass/style.scss style.css | indent
-fi
 
 # Clean up the BUILD_DIR: only keep static site files
 find . -maxdepth 1 -type f -exec rm -f {} +
