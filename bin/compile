@@ -9,6 +9,9 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 LP_DIR=`cd $(dirname $0); cd ..; pwd`
 
+echo `pwd`
+echo $BUILD_DIR
+echo $CACHE_DIR
 mkdir -p $BUILD_DIR/_src
 mv -f * _src
 
