@@ -9,9 +9,6 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 LP_DIR=`cd $(dirname $0); cd ..; pwd`
 
-mkdir -p $BUILD_DIR/_src
-mv -f * _src
-
 function indent() {
   c='s/^/       /'
   case $(uname) in
