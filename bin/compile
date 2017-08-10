@@ -20,7 +20,7 @@ function indent() {
 if [ -d $CACHE_DIR/ruby2.2.1/.rbenv ]; then
   echo "-----> Found Ruby 2.2.1 in cache"
   
-  mdkir -p $HOME/.rbenv
+  mkdir -p $HOME/.rbenv
   rsync -au $CACHE_DIR/ruby2.2.1/.rbenv/* $HOME/.rbenv
   
   export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
