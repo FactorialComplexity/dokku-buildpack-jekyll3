@@ -21,7 +21,7 @@ if [ -d $CACHE_DIR/ruby2.2.1/.rbenv ]; then
   echo "-----> Found Ruby 2.2.1 in cache"
   
   mdkir -p $HOME/.rbenv
-  rsync -auv $CACHE_DIR/ruby2.2.1/.rbenv/* $HOME/.rbenv > /dev/null
+  rsync -au $CACHE_DIR/ruby2.2.1/.rbenv/* $HOME/.rbenv
   
   export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
   rbenv local 2.2.1
@@ -36,7 +36,7 @@ else
   rbenv local 2.2.1
   
   mkdir -p $CACHE_DIR/ruby2.2.1/.rbenv
-  rsync -auv $HOME/.rbenv/* $CACHE_DIR/ruby2.2.1/.rbenv > /dev/null
+  rsync -au $HOME/.rbenv/* $CACHE_DIR/ruby2.2.1/.rbenv
 fi
 
 export GEM_HOME=$BUILD_DIR/.gems
@@ -47,7 +47,7 @@ if [ -d $CACHE_DIR/ruby2.2.1/.gems ]; then
   echo "-----> Found gems in cache"
   
   mkdir -p $BUILD_DIR/.gems
-  rsync -auv $CACHE_DIR/ruby2.2.1/.gems/* $BUILD_DIR/.gems > /dev/null
+  rsync -au $CACHE_DIR/ruby2.2.1/.gems/* $BUILD_DIR/.gems
 fi
 
 echo "-----> Installing/checking gems"
@@ -73,7 +73,7 @@ fi
 
 echo "-----> Saving gems to cache"
 mkdir -p $CACHE_DIR/ruby2.2.1/.gems
-rsync -auv $BUILD_DIR/.gems/* $CACHE_DIR/ruby2.2.1/.gems > /dev/null
+rsync -au $BUILD_DIR/.gems/* $CACHE_DIR/ruby2.2.1/.gems
 
 $BUILD_DIR/.gems/bin/bundle exec $BUILD_DIR/.gems/bin/jekyll build | indent
 if [ -f sass/style.scss ]; then
