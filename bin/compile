@@ -31,10 +31,6 @@ else
   echo "-----> Using `ruby -v`"
 fi
 
-# download and upack packages
-echo "-----> Fetching nginx binaries"
-curl $NGINX_PACKAGE -s -o - | tar xzf - -C $VENDORED_NGINX
-
 export GEM_HOME=$BUILD_DIR/.gems
 export PATH=$BUILD_DIR/.gems/bin:$PATH
 
